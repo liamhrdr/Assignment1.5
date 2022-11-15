@@ -4,12 +4,13 @@ import java.io.*;
 import java.text.NumberFormat;
 
 /** ***************************************************
- *  Name:           Sveinson
+ *  Name:           Liam
  *  Class:          CS30S
  * 
- *  Assignment:     Ax Qy
+ *  Assignment:     A1.5 Q1
  * 
- *  Description:    Place a short description of your program here
+ *  Description:    This program will write a text file to be read by the 
+ *                  corresponding reader file
  * 
  *************************************************************/
 
@@ -17,6 +18,10 @@ public class A1Point5Writer {
 
     public static void main(String[] args) throws IOException{
     // ***** constants *******
+    
+        final int min = 1;
+        final int max = 50;
+        final int range = max - min + 1;
     
     // ***** variables *****
     
@@ -40,7 +45,7 @@ public class A1Point5Writer {
         // file io buffers for reading and writing to text files
         
         //BufferedReader fin = new BufferedReader(new FileReader("filename.txt"));
-        //PrintWriter fout = new PrintWriter(new BufferedWriter(new FileWriter("outfle.txt")));
+        PrintWriter fout = new PrintWriter(new BufferedWriter(new FileWriter("A1.5Info.txt")));
     
     // ***** print banners *****
     
@@ -61,6 +66,10 @@ public class A1Point5Writer {
     
     // ***** Main Processing *****
     
+        for(int i = 0; i <= 1000; i++){
+            fout.println((int)(Math.random() * range) + min);  
+         }
+    
     // ***** Print Formatted Output *****
     
     // ***** Closing Message *****
@@ -72,7 +81,7 @@ public class A1Point5Writer {
     // **** close io buffers *****
     
         //fin.close();
-        //fout.close();
+        fout.close();
     } // end main 
     
 } // end FormatTemplate
