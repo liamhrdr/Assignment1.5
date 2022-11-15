@@ -4,12 +4,13 @@ import java.io.*;           // for File I/O
 import java.text.NumberFormat;  // for formatting currenct
 
 /** ***************************************************
- *  Name:           Sveinson
+ *  Name:           Liam
  *  Class:          CS20S
  * 
- *  Assignment:     Ax Qy
+ *  Assignment:     A1.5 Q2
  * 
- *  Description:    Place a short description of your program here
+ *  Description:    This program will read the data file created by the writer
+ *                  program
  * 
  *************************************************************/
 
@@ -31,15 +32,19 @@ public class A1Point5Reader {
         
         // a new line character that works on every computer system
         String nl = System.lineSeparator();
+        
+        int num = 0;
+        int input = 0;
+        int[] list = new int[51];
     
     // ***** objects *****
     
-        //Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         //NumberFormat currency = NumberFormat.getCurrencyInstance();
         
         // file io buffers for reading and writing to text files
         
-        //BufferedReader fin = new BufferedReader(new FileReader("filename.txt"));
+        BufferedReader fin = new BufferedReader(new FileReader("A1.5Info.txt"));
         //PrintWriter fout = new PrintWriter(new BufferedWriter(new FileWriter("outfle.txt")));
     
     // ***** print banners *****
@@ -60,8 +65,19 @@ public class A1Point5Reader {
         // echo input back to console window
     
     // ***** Main Processing *****
+        
+        for(int i = 0; i <= 1000; i++){
+            num = Integer.valueOf(fin.readLine());
+            try{
+            list[num] = list[num] + 1;
+        } catch(ArrayIndexOutOfBoundsException e){}
+        }
     
     // ***** Print Formatted Output *****
+    
+        System.out.println("Enter a number to see its frequency");
+        input = scanner.nextInt();
+        System.out.println(input + " appears " + list[input] + " times");
     
     // ***** Closing Message *****
     
@@ -71,7 +87,7 @@ public class A1Point5Reader {
         
     // **** close io buffers *****
     
-        //fin.close();
+        fin.close();
         //fout.close();
     } // end main 
     
