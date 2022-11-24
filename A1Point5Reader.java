@@ -34,8 +34,11 @@ public class A1Point5Reader {
         String nl = System.lineSeparator();
         
         int num = 0;
-        int input = 0;
+        int input = 0;                   // used to find a range or single number
+        int input2 = 0;                  // used to find a range
+        int input3 = 0;                  // used to choose between range or single number
         int[] list = new int[51];
+        boolean nr;                      // number vs range
     
     // ***** objects *****
     
@@ -65,7 +68,7 @@ public class A1Point5Reader {
         // echo input back to console window
     
     // ***** Main Processing *****
-        
+        // read list
         for(int i = 0; i <= 1000; i++){
             num = Integer.valueOf(fin.readLine());
             try{
@@ -75,9 +78,23 @@ public class A1Point5Reader {
     
     // ***** Print Formatted Output *****
     
-        System.out.println("Enter a number to see its frequency");
-        input = scanner.nextInt();
-        System.out.println(input + " appears " + list[input] + " times");
+        System.out.println("Enter 1 for a single numbers frequency, enter 2 for a range" + nl);
+        input3 = scanner.nextInt();
+        
+        if(input3 == 1){
+            nr = true;
+            System.out.println("Enter a number to see its frequency");
+            input = scanner.nextInt();
+            System.out.println(input + " appears " + list[input] + " times");
+        } else if (input3 == 2){
+            nr = false;
+            System.out.println("Enter 2 numbers in acending order to see the frequency of each number in the range");
+            input = scanner.nextInt();
+            input2 = scanner.nextInt();
+            for(int i = 0; i < input2; i++){
+                System.out.println(input + i + " appears " + list[input + i] + " times");
+            }
+        } 
     
     // ***** Closing Message *****
     
